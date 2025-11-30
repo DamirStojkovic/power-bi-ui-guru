@@ -17,10 +17,23 @@ const periods: { label: string; value: TimePeriod }[] = [
 ];
 
 export const DateRangeFilter = () => {
-  const { timePeriod, setTimePeriod, dateRange, setDateRange } = useDashboard();
+  const { 
+    timePeriod, 
+    setTimePeriod, 
+    dateRange, 
+    setDateRange, 
+    comparisonMode, 
+    setComparisonMode,
+    comparisonDateRange,
+    setComparisonDateRange 
+  } = useDashboard();
   const [date, setDate] = useState<DateRange | undefined>({
     from: dateRange.from,
     to: dateRange.to,
+  });
+  const [comparisonDate, setComparisonDate] = useState<DateRange | undefined>({
+    from: comparisonDateRange.from,
+    to: comparisonDateRange.to,
   });
 
   const handleDateSelect = (range: DateRange | undefined) => {
@@ -30,8 +43,15 @@ export const DateRangeFilter = () => {
     }
   };
 
+  const handleComparisonDateSelect = (range: DateRange | undefined) => {
+    setComparisonDate(range);
+    if (range?.from && range?.to) {
+      setComparisonDateRange({ from: range.from, to: range.to });
+    }
+  };
+
   return (
-    <div className="flex items-center gap-3">
+    <div className="flex items-center gap-3 flex-wrap">
       {/* Period Pills */}
       <div className="flex gap-2">
         {periods.map((period) => (
@@ -50,6 +70,19 @@ export const DateRangeFilter = () => {
           </button>
         ))}
       </div>
+
+      {/* Comparison Mode Toggle */}
+      <button
+        onClick={() => setComparisonMode(!comparisonMode)}
+        className={cn(
+          "px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 hover-lift",
+          comparisonMode
+            ? "bg-gold text-brand-black shadow-lg"
+            : "glass text-muted-foreground hover:text-foreground hover:bg-muted/50"
+        )}
+      >
+        Sammenlign
+      </button>
 
       {/* Date Range Picker */}
       <Popover>
@@ -89,6 +122,47 @@ export const DateRangeFilter = () => {
           />
         </PopoverContent>
       </Popover>
+
+      {/* Comparison Date Range Picker */}
+      {comparisonMode && (
+        <Popover>
+          <PopoverTrigger asChild>
+            <Button
+              variant="outline"
+              className={cn(
+                "glass border-gold/50 justify-start text-left font-normal hover-lift",
+                !comparisonDate && "text-muted-foreground"
+              )}
+            >
+              <CalendarIcon className="mr-2 h-4 w-4 text-gold" />
+              {comparisonDate?.from ? (
+                comparisonDate.to ? (
+                  <>
+                    {format(comparisonDate.from, "dd. MMM", { locale: da })} -{" "}
+                    {format(comparisonDate.to, "dd. MMM yyyy", { locale: da })}
+                  </>
+                ) : (
+                  format(comparisonDate.from, "dd. MMM yyyy", { locale: da })
+                )
+              ) : (
+                <span>Sammenligningsperiode</span>
+              )}
+            </Button>
+          </PopoverTrigger>
+          <PopoverContent className="w-auto p-0 glass backdrop-blur-xl border-border/50 z-50" align="end">
+            <Calendar
+              initialFocus
+              mode="range"
+              defaultMonth={comparisonDate?.from}
+              selected={comparisonDate}
+              onSelect={handleComparisonDateSelect}
+              numberOfMonths={2}
+              locale={da}
+              className={cn("p-3 pointer-events-auto")}
+            />
+          </PopoverContent>
+        </Popover>
+      )}
     </div>
   );
 };

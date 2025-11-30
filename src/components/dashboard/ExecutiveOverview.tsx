@@ -1,6 +1,10 @@
 import { TrendingUp, Users, DollarSign, Package } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell } from "recharts";
+import { ComparisonCard } from "@/components/ComparisonCard";
+import { useDashboard } from "@/contexts/DashboardContext";
+import { format } from "date-fns";
+import { da } from "date-fns/locale";
 
 const stats = [
   { label: "Total Omsætning", value: "2,4M kr", change: "+12.5%", icon: DollarSign },
@@ -24,33 +28,76 @@ const gauges = [
 ];
 
 export const ExecutiveOverview = () => {
+  const { comparisonMode, dateRange, comparisonDateRange } = useDashboard();
+
   return (
     <div className="space-y-6">
-      {/* Stats Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 animate-scale-in">
-        {stats.map((stat, i) => {
-          const Icon = stat.icon;
-          return (
-            <Card key={i} className="glass-card hover-lift border-border/30">
-              <CardContent className="p-6">
-                <div className="flex items-start justify-between">
-                  <div>
-                    <p className="text-sm text-muted-foreground mb-1">{stat.label}</p>
-                    <h3 className="text-3xl font-bold text-foreground">{stat.value}</h3>
-                    <p className="text-sm text-primary mt-2 flex items-center gap-1">
-                      <TrendingUp className="w-3 h-3" />
-                      {stat.change}
-                    </p>
+      {/* Stats Grid or Comparison Grid */}
+      {comparisonMode ? (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 animate-scale-in">
+          <ComparisonCard
+            title="Total Omsætning"
+            currentValue="2,4M kr"
+            currentLabel={format(dateRange.from, "dd. MMM", { locale: da }) + " - " + format(dateRange.to, "dd. MMM", { locale: da })}
+            comparisonValue="2,1M kr"
+            comparisonLabel={format(comparisonDateRange.from, "dd. MMM", { locale: da }) + " - " + format(comparisonDateRange.to, "dd. MMM", { locale: da })}
+            change={14.3}
+            icon={<DollarSign className="w-5 h-5" />}
+          />
+          <ComparisonCard
+            title="Ordrer i dag"
+            currentValue="347"
+            currentLabel={format(dateRange.from, "dd. MMM", { locale: da }) + " - " + format(dateRange.to, "dd. MMM", { locale: da })}
+            comparisonValue="312"
+            comparisonLabel={format(comparisonDateRange.from, "dd. MMM", { locale: da }) + " - " + format(comparisonDateRange.to, "dd. MMM", { locale: da })}
+            change={11.2}
+            icon={<Package className="w-5 h-5" />}
+          />
+          <ComparisonCard
+            title="Gennemsnitlig ordre"
+            currentValue="142 kr"
+            currentLabel={format(dateRange.from, "dd. MMM", { locale: da }) + " - " + format(dateRange.to, "dd. MMM", { locale: da })}
+            comparisonValue="135 kr"
+            comparisonLabel={format(comparisonDateRange.from, "dd. MMM", { locale: da }) + " - " + format(comparisonDateRange.to, "dd. MMM", { locale: da })}
+            change={5.2}
+            icon={<TrendingUp className="w-5 h-5" />}
+          />
+          <ComparisonCard
+            title="Aktive medarbejdere"
+            currentValue="24"
+            currentLabel={format(dateRange.from, "dd. MMM", { locale: da }) + " - " + format(dateRange.to, "dd. MMM", { locale: da })}
+            comparisonValue="22"
+            comparisonLabel={format(comparisonDateRange.from, "dd. MMM", { locale: da }) + " - " + format(comparisonDateRange.to, "dd. MMM", { locale: da })}
+            change={9.1}
+            icon={<Users className="w-5 h-5" />}
+          />
+        </div>
+      ) : (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 animate-scale-in">
+          {stats.map((stat, i) => {
+            const Icon = stat.icon;
+            return (
+              <Card key={i} className="glass-card hover-lift border-border/30">
+                <CardContent className="p-6">
+                  <div className="flex items-start justify-between">
+                    <div>
+                      <p className="text-sm text-muted-foreground mb-1">{stat.label}</p>
+                      <h3 className="text-3xl font-bold text-foreground">{stat.value}</h3>
+                      <p className="text-sm text-primary mt-2 flex items-center gap-1">
+                        <TrendingUp className="w-3 h-3" />
+                        {stat.change}
+                      </p>
+                    </div>
+                    <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
+                      <Icon className="w-6 h-6 text-primary" />
+                    </div>
                   </div>
-                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
-                    <Icon className="w-6 h-6 text-primary" />
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          );
-        })}
-      </div>
+                </CardContent>
+              </Card>
+            );
+          })}
+        </div>
+      )}
 
       {/* Gauges */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
