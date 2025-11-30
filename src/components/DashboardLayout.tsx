@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Building2, TrendingUp, ShoppingCart, Package, Users, BarChart3 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { DateRangeFilter } from "@/components/DateRangeFilter";
 
 interface DashboardLayoutProps {
   children: (props: { activePage: string }) => React.ReactNode;
@@ -23,7 +24,7 @@ export const DashboardLayout = ({ children }: DashboardLayoutProps) => {
       {/* Header */}
       <header className="glass border-b border-border/30 sticky top-0 z-50 backdrop-blur-xl">
         <div className="container mx-auto px-6 py-4">
-          <div className="flex items-center justify-between">
+          <div className="flex items-center justify-between flex-wrap gap-4">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-primary/60 flex items-center justify-center">
                 <span className="text-xl font-bold text-primary-foreground">BD</span>
@@ -33,6 +34,7 @@ export const DashboardLayout = ({ children }: DashboardLayoutProps) => {
                 <p className="text-xs text-muted-foreground">Aalborg Dashboard</p>
               </div>
             </div>
+            <DateRangeFilter />
           </div>
         </div>
       </header>

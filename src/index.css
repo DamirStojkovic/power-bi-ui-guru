@@ -24,27 +24,27 @@ All colors MUST be HSL.
     
     /* Channel Colors */
     --channel-online: 45 100% 50%;
-    --channel-butik: 0 0% 10%;
+    --channel-butik: 240 5% 26%;
     --channel-wolt: 200 100% 45%;
 
-    /* Base Theme */
-    --background: 0 0% 8%;
+    /* Base Theme - Lighter */
+    --background: 220 15% 16%;
     --foreground: 0 0% 98%;
 
-    --card: 0 0% 12% / 0.5;
+    --card: 220 15% 20% / 0.6;
     --card-foreground: 0 0% 98%;
 
-    --popover: 0 0% 12%;
+    --popover: 220 15% 18%;
     --popover-foreground: 0 0% 98%;
 
     --primary: 45 100% 50%;
     --primary-foreground: 0 0% 10%;
 
-    --secondary: 0 0% 15%;
+    --secondary: 220 12% 25%;
     --secondary-foreground: 0 0% 98%;
 
-    --muted: 0 0% 20%;
-    --muted-foreground: 0 0% 65%;
+    --muted: 220 10% 28%;
+    --muted-foreground: 0 0% 70%;
 
     --accent: 0 85% 55%;
     --accent-foreground: 0 0% 98%;
@@ -52,20 +52,20 @@ All colors MUST be HSL.
     --destructive: 0 85% 55%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 0 0% 20% / 0.3;
-    --input: 0 0% 20% / 0.5;
+    --border: 0 0% 35% / 0.4;
+    --input: 220 15% 25% / 0.6;
     --ring: 45 100% 50%;
 
     --radius: 1rem;
 
-    /* Glassmorphism */
-    --glass-bg: 0 0% 100% / 0.05;
-    --glass-border: 0 0% 100% / 0.1;
-    --glass-shadow: 0 0% 0% / 0.2;
+    /* Glassmorphism - Enhanced */
+    --glass-bg: 0 0% 100% / 0.08;
+    --glass-border: 0 0% 100% / 0.15;
+    --glass-shadow: 0 0% 0% / 0.3;
     
     /* Gradients */
     --gradient-gold: linear-gradient(135deg, hsl(45 100% 50%), hsl(45 100% 35%));
-    --gradient-dark: linear-gradient(180deg, hsl(0 0% 8%), hsl(0 0% 5%));
+    --gradient-dark: linear-gradient(180deg, hsl(220 15% 18%), hsl(220 15% 12%));
     --gradient-red: linear-gradient(135deg, hsl(0 85% 55%), hsl(0 85% 40%));
   }
 }
@@ -78,7 +78,7 @@ All colors MUST be HSL.
   body {
     @apply bg-background text-foreground;
     font-family: 'Nunito Sans', system-ui, sans-serif;
-    background: linear-gradient(180deg, hsl(0 0% 8%), hsl(0 0% 5%));
+    background: linear-gradient(180deg, hsl(220 15% 18%), hsl(220 15% 12%));
     min-height: 100vh;
   }
 }

@@ -5,21 +5,24 @@ import { ChannelAnalysis } from "@/components/dashboard/ChannelAnalysis";
 import { ProductPerformance } from "@/components/dashboard/ProductPerformance";
 import { OperationalInsight } from "@/components/dashboard/OperationalInsight";
 import { EmployeeAnalysis } from "@/components/dashboard/EmployeeAnalysis";
+import { DashboardProvider } from "@/contexts/DashboardContext";
 
 const Index = () => {
   return (
-    <DashboardLayout>
-      {({ activePage }: { activePage: string }) => (
-        <>
-          {activePage === "overview" && <ExecutiveOverview />}
-          {activePage === "stores" && <StoreComparison />}
-          {activePage === "channels" && <ChannelAnalysis />}
-          {activePage === "products" && <ProductPerformance />}
-          {activePage === "operations" && <OperationalInsight />}
-          {activePage === "employees" && <EmployeeAnalysis />}
-        </>
-      )}
-    </DashboardLayout>
+    <DashboardProvider>
+      <DashboardLayout>
+        {({ activePage }: { activePage: string }) => (
+          <>
+            {activePage === "overview" && <ExecutiveOverview />}
+            {activePage === "stores" && <StoreComparison />}
+            {activePage === "channels" && <ChannelAnalysis />}
+            {activePage === "products" && <ProductPerformance />}
+            {activePage === "operations" && <OperationalInsight />}
+            {activePage === "employees" && <EmployeeAnalysis />}
+          </>
+        )}
+      </DashboardLayout>
+    </DashboardProvider>
   );
 };
 
