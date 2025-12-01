@@ -1,0 +1,10 @@
+Channel,Store Name,Date,Revenue,Number of Orders,Profit,Growth Rate,Average Order Value
+Online,Reberbansgade,2024-01-01,15000,45,8500,12.5,333.33
+Butik,Reberbansgade,2024-01-01,20000,50,11000,8.2,400.00
+Wolt,Reberbansgade,2024-01-01,10000,25,5500,15.3,400.00
+Online,Sjællandsgade,2024-01-01,12000,35,6800,10.1,342.86
+Butik,Sjællandsgade,2024-01-01,18000,45,10200,7.5,400.00
+Wolt,Sjællandsgade,2024-01-01,8000,15,4000,18.2,533.33
+Online,Friis,2024-01-01,14000,40,7800,11.3,350.00
+Butik,Friis,2024-01-01,19000,48,10500,9.1,395.83
+Wolt,Friis,2024-01-01,9000,22,5200,14.7,409.09

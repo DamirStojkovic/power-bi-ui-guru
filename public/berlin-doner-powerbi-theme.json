@@ -1,0 +1,98 @@
+{
+  "name": "Berlin Döner Aalborg",
+  "dataColors": [
+    "#FFCC00",
+    "#DD0000",
+    "#000000",
+    "#666666",
+    "#999999",
+    "#CCCCCC",
+    "#FFD633",
+    "#EE3333"
+  ],
+  "background": "#FFFFFF",
+  "foreground": "#000000",
+  "tableAccent": "#FFCC00",
+  "good": "#00AA00",
+  "neutral": "#999999",
+  "bad": "#DD0000",
+  "maximum": "#DD0000",
+  "center": "#999999",
+  "minimum": "#00AA00",
+  "null": "#CCCCCC",
+  "textClasses": {
+    "callout": {
+      "fontFace": "Nunito Sans",
+      "fontSize": 45,
+      "fontColor": "#000000"
+    },
+    "title": {
+      "fontFace": "Nunito Sans",
+      "fontSize": 16,
+      "fontColor": "#000000"
+    },
+    "header": {
+      "fontFace": "Nunito Sans",
+      "fontSize": 14,
+      "fontColor": "#000000"
+    },
+    "label": {
+      "fontFace": "Nunito Sans",
+      "fontSize": 12,
+      "fontColor": "#666666"
+    }
+  },
+  "visualStyles": {
+    "*": {
+      "*": {
+        "background": [
+          {
+            "color": {
+              "solid": {
+                "color": "#FFFFFF"
+              }
+            },
+            "transparency": 0
+          }
+        ],
+        "border": [
+          {
+            "color": {
+              "solid": {
+                "color": "#E5E7EB"
+              }
+            },
+            "show": true,
+            "radius": 8
+          }
+        ],
+        "shadow": [
+          {
+            "show": true,
+            "color": {
+              "solid": {
+                "color": "#00000015"
+              }
+            },
+            "position": "Outer",
+            "transparency": 0
+          }
+        ]
+      }
+    },
+    "card": {
+      "*": {
+        "background": [
+          {
+            "color": {
+              "solid": {
+                "color": "#FFFFFF"
+              }
+            },
+            "transparency": 10
+          }
+        ]
+      }
+    }
+  }
+}

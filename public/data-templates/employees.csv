@@ -1,0 +1,7 @@
+Employee Name,Store Name,Date,Shift Start,Shift End,Hours Worked,Salary Cost,Revenue Generated,Bags Upsold,Ketchup Upsold,Chili Mayo Upsold,Truffle Mayo Upsold,Desserts Upsold,Total Upselling
+Anders Nielsen,Reberbansgade,2024-01-01,08:00,16:00,8,1200,6500,5,8,12,6,4,35
+Maria Hansen,Reberbansgade,2024-01-01,16:00,00:00,8,1200,5800,3,6,9,4,2,24
+Peter Jensen,Sjællandsgade,2024-01-01,08:00,16:00,8,1200,5200,4,7,10,5,3,29
+Emma Larsen,Sjællandsgade,2024-01-01,16:00,00:00,8,1200,4900,2,5,8,3,2,20
+Mikkel Andersen,Friis,2024-01-01,08:00,16:00,8,1200,6200,6,9,13,7,5,40
+Sarah Christensen,Friis,2024-01-01,16:00,00:00,8,1200,5500,4,6,10,5,3,28

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Building2, TrendingUp, ShoppingCart, Package, Users, BarChart3 } from "lucide-react";
+import { Building2, TrendingUp, ShoppingCart, Package, Users, BarChart3, Download } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { DateRangeFilter } from "@/components/DateRangeFilter";
 import { Button } from "@/components/ui/button";
@@ -15,6 +15,7 @@ const navItems = [
   { id: "products", label: "Produkt Performance", icon: Package },
   { id: "operations", label: "Operationel Indsigt", icon: TrendingUp },
   { id: "employees", label: "Medarbejder Analyse", icon: Users },
+  { id: "powerbi", label: "Power BI Export", icon: Download },
 ];
 
 export const DashboardLayout = ({ children }: DashboardLayoutProps) => {

@@ -1,0 +1,12 @@
+Product Name,Store Name,Date,Revenue,Quantity Sold,Contribution Margin,Contribution Margin Ratio,Category
+Klassisk Döner,Reberbansgade,2024-01-01,8500,85,4800,56.5,Main Dish
+Vegetar Döner,Reberbansgade,2024-01-01,5200,52,3000,57.7,Main Dish
+Durum,Reberbansgade,2024-01-01,6800,68,3850,56.6,Main Dish
+Falafel,Reberbansgade,2024-01-01,4200,42,2520,60.0,Main Dish
+Pommes Frites,Reberbansgade,2024-01-01,2800,56,1900,67.9,Side Dish
+Drikke,Reberbansgade,2024-01-01,3500,140,2800,80.0,Beverage
+Ketchup,Reberbansgade,2024-01-01,280,56,250,89.3,Condiment
+Chili Mayo,Reberbansgade,2024-01-01,350,70,310,88.6,Condiment
+Truffle Mayo,Reberbansgade,2024-01-01,420,42,370,88.1,Condiment
+Pose,Reberbansgade,2024-01-01,150,30,140,93.3,Accessory
+Dessert,Reberbansgade,2024-01-01,1800,36,1200,66.7,Dessert
