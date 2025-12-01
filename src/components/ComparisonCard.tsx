@@ -22,8 +22,8 @@ export const ComparisonCard = ({
   icon,
 }: ComparisonCardProps) => {
   const getChangeColor = () => {
-    if (change > 0) return "text-green-500";
-    if (change < 0) return "text-red-500";
+    if (change > 0) return "text-success";
+    if (change < 0) return "text-error";
     return "text-muted-foreground";
   };
 
