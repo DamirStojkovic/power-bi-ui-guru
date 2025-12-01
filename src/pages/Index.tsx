@@ -5,6 +5,7 @@ import { ChannelAnalysis } from "@/components/dashboard/ChannelAnalysis";
 import { ProductPerformance } from "@/components/dashboard/ProductPerformance";
 import { OperationalInsight } from "@/components/dashboard/OperationalInsight";
 import { EmployeeAnalysis } from "@/components/dashboard/EmployeeAnalysis";
+import { PowerBIExport } from "@/components/dashboard/PowerBIExport";
 import { DashboardProvider } from "@/contexts/DashboardContext";
 
 const Index = () => {
@@ -19,6 +20,7 @@ const Index = () => {
             {activePage === "products" && <ProductPerformance />}
             {activePage === "operations" && <OperationalInsight />}
             {activePage === "employees" && <EmployeeAnalysis />}
+            {activePage === "powerbi" && <PowerBIExport />}
           </>
         )}
       </DashboardLayout>
