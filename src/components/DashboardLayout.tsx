@@ -1,7 +1,15 @@
 import { useState } from "react";
-import { Building2, TrendingUp, ShoppingCart, Package, Users, BarChart3 } from "lucide-react";
+import { Building2, TrendingUp, ShoppingCart, Package, Users, BarChart3, Download } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { DateRangeFilter } from "@/components/DateRangeFilter";
+import { Button } from "@/components/ui/button";
+import { downloadPowerBITheme } from "@/lib/exportUtils";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 interface DashboardLayoutProps {
   children: (props: { activePage: string }) => React.ReactNode;
@@ -34,7 +42,22 @@ export const DashboardLayout = ({ children }: DashboardLayoutProps) => {
                 <p className="text-xs text-muted-foreground">Aalborg Dashboard</p>
               </div>
             </div>
-            <DateRangeFilter />
+            <div className="flex items-center gap-3">
+              <DateRangeFilter />
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button variant="outline" size="sm" className="gap-2">
+                    <Download className="w-4 h-4" />
+                    Export
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="end">
+                  <DropdownMenuItem onClick={downloadPowerBITheme}>
+                    Power BI Theme
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
+            </div>
           </div>
         </div>
       </header>
